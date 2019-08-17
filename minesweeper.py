@@ -15,6 +15,7 @@ COLORS = {"0": "#cad7e8",
           "7": "white",
           "8": "white",
           "X": "black"}
+TIMER_ENABLED = True
 
 
 class Level:
@@ -240,6 +241,9 @@ class App(threading.Thread):
 
     def timer_tick(self):
         """ Updates timer every second """
+        if not TIMER_ENABLED:
+            return
+
         if self.timer_is_running:
             current_time = int(self.timer.cget("text"))
             new_time = str(current_time + 1) if current_time + 1 < 999 else "999"

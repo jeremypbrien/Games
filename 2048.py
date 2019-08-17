@@ -23,7 +23,7 @@ class App:
         self.root.bind("<Right>", lambda event, direction="right": self.swipe(direction))
         self.root.bind("<Up>", lambda event, direction="up": self.swipe(direction))
         self.root.bind("<Down>", lambda event, direction="down": self.swipe(direction))
-        self.root.bind("<space>", lambda event: self.simulate())
+        # self.root.bind("<space>", lambda event: self.simulate())
 
     def reset(self):
         self.score_label.config(text="0")
@@ -168,6 +168,8 @@ class App:
                         return False
         return True
 
+
+"""
     def simulate(self):
         direction = self.computer.analyze()
         self.swipe(direction)
@@ -194,6 +196,7 @@ class Computer:
 
     def print_average(self):
         print(sum(self.scores) // len(self.scores))
+    
 
 
 class Match:
@@ -208,7 +211,7 @@ class Match:
 
     def __str__(self):
         return "%s, %s, %s" % (self.tile1, self.tile2, self.direction)
-
+"""
 
 if __name__ == "__main__":
     app = App()
