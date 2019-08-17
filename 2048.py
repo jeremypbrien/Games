@@ -1,6 +1,7 @@
 from tkinter import *
 from random import choice
 
+
 class App:
 
     def __init__(self):
@@ -207,6 +208,7 @@ class Match:
 
     def __str__(self):
         return "%s, %s, %s" % (self.tile1, self.tile2, self.direction)
+
 
 if __name__ == "__main__":
     app = App()
