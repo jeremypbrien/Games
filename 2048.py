@@ -99,10 +99,7 @@ class App:
         if old_values != [[z.cget("text") for z in y] for y in [x for x in self.tiles]]:
             self.add_random_tile()
             if self.detected_loss():
-                self.computer.scores.append(int(self.score_label.cget("text")))
-                self.computer.print_average()
                 self.reset()
-        self.computer.tiles = self.tiles  # Updates tiles for computer
 
     def add_random_tile(self):
         empty_tiles = []
@@ -165,51 +162,6 @@ class App:
                     if i == values[row][col]:
                         return False
         return True
-
-
-"""
-    def simulate(self):
-        direction = self.computer.analyze()
-        self.swipe(direction)
-        self.root.after(1000, self.simulate)
-
-
-class Computer:
-    def __init__(self):
-        self.scores = []
-        self.tiles = None
-
-    def analyze(self):
-        board = [[z.cget("text") for z in y] for y in [x for x in self.tiles]]
-        matches = self.find_matches(board)
-
-    def find_matches(self, board):
-        matches = []
-
-        print(matches)
-
-    @staticmethod
-    def pick_random_direction():
-        return choice(["left", "right", "up", "down"])
-
-    def print_average(self):
-        print(sum(self.scores) // len(self.scores))
-    
-
-
-class Match:
-
-    def __init__(self, tile1, tile2, direction):
-        self.tile1 = tile1
-        self.tile2 = tile2
-        self.direction = direction
-
-    def __eq__(self, other):
-        return self.tile1 == other.tile1 and self.tile2 == other.tile2
-
-    def __str__(self):
-        return "%s, %s, %s" % (self.tile1, self.tile2, self.direction)
-"""
 
 if __name__ == "__main__":
     app = App()
