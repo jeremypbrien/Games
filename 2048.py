@@ -11,7 +11,6 @@ class App:
         self.root.config(bg="white")
         self.canvas = Canvas(self.root, bg="#bbada0", bd=0, highlightthickness=0)
         self.score_label = Label(self.root, bg="white", width=20, height=2, text="0", font=("Arial ", 50))
-        self.computer = Computer()
 
         self.score_label.pack()
         self.canvas.pack()
@@ -37,7 +36,6 @@ class App:
                 current_row.append(tile)
             self.tiles.append(current_row)
         self.add_random_tile()
-        self.computer.tiles = self.tiles
 
     def swipe(self, direction):
         old_values = [[z.cget("text") for z in y] for y in [x for x in self.tiles]]
